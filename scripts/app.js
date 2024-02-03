@@ -48,4 +48,28 @@ cityForm.addEventListener("submit", (e) => {
   updateCity(city)
     .then((data) => updateUI(data))
     .catch((err) => console.log(err));
+
+  localStorage.setItem("city", city);
 });
+
+if (localStorage.getItem("city")) {
+  updateCity(localStorage.getItem("city"))
+    .then((data) => updateUI(data))
+    .catch((err) => console.log(err));
+}
+
+/* 
+const todos = [
+  { text: "play mariokart", author: "test" },
+  { text: "build website", author: "william" },
+  { text: "store data", author: "wille" },
+];
+console.log(JSON.stringify(todos));
+
+localStorage.setItem("todos", JSON.stringify(todos));
+
+const stored = localStorage.getItem("todos");
+let jsonstr = JSON.parse(stored);
+console.log(stored);
+console.log(jsonstr);
+ */
